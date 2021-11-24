@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    width: 1140px;
+    margin: 0 auto;
+}
+$main-color: #ec644b;
+$menu-color: lavender;
+
+@import 'fonts';
+@import 'header/header';
+@import 'header/header-media';
