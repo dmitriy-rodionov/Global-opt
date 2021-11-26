@@ -9,6 +9,7 @@
     margin: 0 auto;
 }
 $main-color: #ec644b;
+$secons-color: #25333c;
 $menu-color: lavender;
 
 @import 'fonts';
@@ -20,3 +21,5 @@ $menu-color: lavender;
 @import 'work/work-media';
 @import 'agent/agent';
 @import 'agent/agent-media';
+@import 'prices/prices';
+@import 'prices/prices-media';

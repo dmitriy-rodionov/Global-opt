@@ -1,0 +1,116 @@
+.prices{
+    padding: 53px 0 80px 0;
+    height: 100%;
+    &__wrapper{
+        margin-top: 31px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__item{
+        width: 23%;
+        border: 1px solid #e9e9e9;
+        padding-bottom: 21px;
+        &-head{
+            padding: 19px 0;
+            background-color: $secons-color;
+            font-size: 16px;
+            line-height: 23px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-align: center;
+        }
+    }
+    &__icon{
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+    &__term{
+        margin-top: 12px;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: #2e2e2e;
+        text-align: center;
+    }
+    &__price{
+        font-size: 28px;
+        line-height: 30px;
+        font-weight: 400;
+        text-transform: none;
+        color: $main-color;
+        text-align: center;
+    }
+    &__text{
+        margin-top: 11px;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 300;
+        color: #2e2e2e;
+        text-align: center;
+    }
+    &__btn{
+        display: block;
+        margin: 0 auto;
+        margin-top: 22px;
+    }
+    &__subtitle{
+        margin-top: 58px;
+        font-size: 28px;
+        line-height: 23px;
+        font-weight: 400;
+        color: #3a3a3a;
+        text-align: center;
+    }
+    &__form{
+        margin-top: 75px;
+        position: relative;
+        border: 1px solid #e9e9e9;
+        display: flex;
+        justify-content: center;
+        padding: 65px 0 50px 0;
+        &-input{
+            width: 24%;
+            border: 1px solid #e9e9e9;
+            padding: 15px 27px;
+            border-radius: 30px;
+            margin-right: 4px;
+            outline: none;
+                &:last-child{
+                    margin: 0;
+                }
+        }
+        &-img{
+            width: 102px;
+            height: 102px;
+            border: 1px solid $main-color;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &_wrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: -55px;
+                position: absolute;
+                width: 122px;
+                background: #fff;
+            }
+        }
+        &-btn{
+            width: 180px;
+            &_wrapper{
+                position: absolute;
+                bottom: -23px;
+                background: #fff;
+                width: 206px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
