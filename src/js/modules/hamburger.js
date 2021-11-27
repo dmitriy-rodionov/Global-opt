@@ -28,5 +28,4 @@ const hamburger = function() {
         document.body.style.overflow = 'scroll';
     })
 }
-hamburger();
 export default hamburger;

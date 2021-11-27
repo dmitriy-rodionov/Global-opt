@@ -2,6 +2,75 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/modules/forms.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/forms.js ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const forms = () => {
+    const form = document.querySelectorAll('form'),
+          input = document.querySelectorAll('input'),
+          phoneInputs = document.querySelectorAll('input[name="phone"]');
+
+    phoneInputs.forEach(item => {
+        item.addEventListener('input', () => {
+            item.value = item.value.replace(/\D/, '');
+        });
+    });
+
+    const message = {
+        loading: 'Загрузка',
+        success: 'Спасибо! Мы скоро с вами свяжемся',
+        failure: 'Ошибка'
+    };
+
+    const postData = async (url, data) => {
+        document.querySelector('.status').textContent = message.loading;
+        let res = await fetch(url, {
+            method: 'POST',
+            body: data
+        });
+
+        return await res.text();
+    };
+
+    const clearInputs = () => {
+        input.forEach(item => {
+            item.value = '';
+        })
+    }
+
+    form.forEach(item => {
+        item.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let statusMessage = document.createElement('div');
+            statusMessage.classList.add('status');
+            item.appendChild(statusMessage);
+
+            const formData = new FormData(item);
+            postData('server.php', formData)
+                .then(res => {
+                    console.log(res);
+                    statusMessage.textContent = message.success;
+                })
+                .catch(() => statusMessage.textContent = message.failure)
+                .finally(() => {
+                    clearInputs();
+                    setTimeout(() => {
+                        statusMessage.remove();
+                    }, 5000);
+                })
+        });
+    });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (forms);
+
+/***/ }),
+
 /***/ "./src/js/modules/hamburger.js":
 /*!*************************************!*\
   !*** ./src/js/modules/hamburger.js ***!
@@ -39,7 +108,6 @@ const hamburger = function() {
         document.body.style.overflow = 'scroll';
     })
 }
-hamburger();
 /* harmony default export */ __webpack_exports__["default"] = (hamburger);
 
 /***/ })
@@ -91,7 +159,15 @@ var __webpack_exports__ = {};
   \*************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_hamburger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/hamburger */ "./src/js/modules/hamburger.js");
+/* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
 
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    'use strict';
+    (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    (0,_modules_forms__WEBPACK_IMPORTED_MODULE_1__["default"])();
+});
 }();
 /******/ })()
 ;
