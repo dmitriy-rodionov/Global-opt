@@ -110,6 +110,91 @@ const hamburger = function() {
 }
 /* harmony default export */ __webpack_exports__["default"] = (hamburger);
 
+/***/ }),
+
+/***/ "./src/js/modules/slider.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/slider.js ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const slider = () => {
+    const carousel = document.querySelector('.reviews__slider'),
+          slides = document.querySelectorAll('.reviews__slider-item'),
+          field = document.querySelector('.reviews__slider-wrapper'),
+          left = document.querySelector('.reviews__slider-arrow-left'),
+          right = document.querySelector('.reviews__slider-arrow-right'),
+          width = window.getComputedStyle(carousel).width;
+          let index = 1,
+              offset = 0;
+
+    field.style.display = 'flex';
+    field.style.width = 100 * slides.length + '%';
+    field.style.transition = '0.5s all';
+
+    slides.forEach(slide => {
+        slide.style.width = width;
+    });
+
+    right.addEventListener('click', moveRight);
+    left.addEventListener('click', moveLeft);
+
+    (function() {
+        if(offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
+            offset = 0;
+        } else {
+            offset += +width.slice(0, width.length - 2);
+        }
+        field.style.transform = `translateX(-${offset}px)`;
+        active(index);
+    }());
+
+    function moveRight() {
+        if(offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
+            offset = 0;
+        } else {
+            offset += +width.slice(0, width.length - 2);
+        }
+        field.style.transform = `translateX(-${offset}px)`;
+        if(index == slides.length - 1){
+            index = 0;
+        } else{
+            index++;
+        }
+        active(index);
+    }
+
+    function moveLeft() {
+        if(offset == 0) {
+            offset = +width.slice(0, width.length - 2) * (slides.length - 1)
+        } else {
+            offset -= +width.slice(0, width.length - 2);
+        }
+        field.style.transform = `translateX(-${offset}px)`;
+
+        if(index == 0){
+            index = slides.length - 1;
+        } else{
+            index--;
+        }
+        active(index);
+    }
+
+    function active(a){
+        slides.forEach((item, i) => {
+            if(i === a) {
+                slides[i].classList.add('reviews__slider-item_active');
+            } else{
+                item.classList.remove('reviews__slider-item_active');
+            }
+        });
+    }   
+}
+
+
+/* harmony default export */ __webpack_exports__["default"] = (slider);
+
 /***/ })
 
 /******/ 	});
@@ -160,6 +245,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_hamburger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/hamburger */ "./src/js/modules/hamburger.js");
 /* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
+/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
+
 
 
 
@@ -167,6 +254,7 @@ window.addEventListener('DOMContentLoaded', () => {
     'use strict';
     (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_0__["default"])();
     (0,_modules_forms__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    (0,_modules_slider__WEBPACK_IMPORTED_MODULE_2__["default"])();
 });
 }();
 /******/ })()
