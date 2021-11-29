@@ -7,6 +7,10 @@
 .container{
     width: 1140px;
     margin: 0 auto;
+    &_wide{
+        width: 1410px;
+        overflow: hidden;
+    }
 }
 $main-color: #ec644b;
 $secons-color: #25333c;
@@ -27,3 +31,5 @@ $menu-color: lavender;
 @import 'managers/managers-media';
 @import 'scheme/scheme';
 @import 'scheme/scheme-media';
+@import 'reviews/reviews';
+@import 'reviews/reviews-media';
