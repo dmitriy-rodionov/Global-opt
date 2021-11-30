@@ -1,0 +1,54 @@
+.footer{
+    padding: 24px 0 28px 0;
+    background: $secons-color;
+    &__content{
+        &-upper{
+            display: flex;
+            align-items: center;
+        }
+        &-lower{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+    }
+    &__logo{
+        width: 68px;
+        height: 71px;
+    }
+    &__title{
+        margin-left: 43px;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+    &__divider{
+        margin-top: 22px;
+        width: 100%;
+        height: 1px;
+        background: rgba($color: #ffffff, $alpha: 0.3);
+    }
+    &__text{
+        font-size: 13px;
+        line-height: 17px;
+        font-weight: 300;
+        color: #ffffff;
+        opacity: 0.6;
+    }
+    &__link{
+        font-size: 13px;
+        line-height: 17px;
+        font-weight: 300;
+        text-decoration: underline;
+        color: $main-color;
+    }
+    &__creation{
+        display: flex;
+        align-items: center;
+        &-text{
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+    }
+}
